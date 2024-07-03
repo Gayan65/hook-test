@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useReducer } from "react";
+import { reducer } from "../hooks/personalHooks";
 
-//useReduser
 const PersonalInfo = () => {
-  const [name, setName] = useState("");
+  const [state, dispatch] = useReducer(reducer, "");
 
   const handdleClick = () => {
-    console.log(name);
+    console.log(state);
   };
 
   return (
@@ -14,8 +14,10 @@ const PersonalInfo = () => {
       <div className="personal-info-form">
         <input
           name="first_name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={state}
+          onChange={(e) =>
+            dispatch({ type: "set_name", payload: e.target.value })
+          }
         />
         <button onClick={handdleClick}>Save</button>
       </div>
