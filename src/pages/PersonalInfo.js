@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//useReduser
 const PersonalInfo = () => {
   const [name, setName] = useState("");
 
